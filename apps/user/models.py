@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    title = models.CharField(max_length=100, null=True,
+    title = models.CharField(max_length=100, null=True, blank=True, 
                              help_text='Your profession')
-    bio = models.TextField(default='')
-    aim = models.TextField(default='')
+    bio = models.TextField(default='', blank=True, )
+    aim = models.TextField(default='', blank=True, )

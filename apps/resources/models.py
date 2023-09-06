@@ -3,6 +3,8 @@ from apps.core.models import CreatedModifiedDateTimeBase
 from apps.user.models import User
 from django.contrib.postgres.fields import ArrayField
 
+from apps.resources import validators
+
 # Create your models here.
 
 
@@ -33,13 +35,21 @@ class Resources(CreatedModifiedDateTimeBase):
     description = models.TextField()
     link = models.URLField(max_length=500)
     tags = models.ManyToManyField("resources.Tag", through="ResourcesTag")
-    rate = ArrayField(base_field=models.IntegerField())  # INT ARRAY
+    # rate = ArrayField(base_field=models.IntegerField())  # INT ARRAY
 
     def __str__(self):
         return self.title
 
     class Meta:
         verbose_name_plural = 'Resourses'
+
+    @property
+    def username(self):
+        return self.user_id.username
+
+    @property
+    def user_title(self):
+        return self.user_id.title
 
 
 class ResourcesTag(CreatedModifiedDateTimeBase):
@@ -61,3 +71,11 @@ class Review(CreatedModifiedDateTimeBase):
 
     # def __str__(self):
     #     return f"{self.user_id.username} - {self.resources_id.title}"
+
+
+class Rating(CreatedModifiedDateTimeBase):
+    user_id = models.ForeignKey(
+        "user.User", null=True, on_delete=models.SET_NULL)
+    resources_id = models.ForeignKey(
+        "resources.Resources", on_delete=models.CASCADE)
+    rate = models.IntegerField(validators=[validators.check_rating_range, ])
