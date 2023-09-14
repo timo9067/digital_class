@@ -50,6 +50,9 @@ class Resources(CreatedModifiedDateTimeBase):
     @property
     def user_title(self):
         return self.user_id.title
+    
+    def all_tags(self):
+        return ", ".join([tag.name for tag in self.tags.all()]) 
 
 
 class ResourcesTag(CreatedModifiedDateTimeBase):
@@ -79,3 +82,4 @@ class Rating(CreatedModifiedDateTimeBase):
     resources_id = models.ForeignKey(
         "resources.Resources", on_delete=models.CASCADE)
     rate = models.IntegerField(validators=[validators.check_rating_range, ])
+

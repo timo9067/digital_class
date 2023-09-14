@@ -9,52 +9,44 @@ The teachers can upload the respective materials and do assessments and communic
 Projected DataBase: 
 
 Data tables needed:
-- Persons
+- Persons (Users)
 	- id
 	- first name
 	- last name
 	- dob
 	- group_id
+	- role (enum) ? # actually IDK how to implement it
 
 - Teachers
 	- id
 	- person_id
 	- group_id (many groups)
 	- thema_id (many themas)
+
 - Students
   - id
 	- person_id
 	- group_id (many groups)
-
-- Tutors
-	- id
-	- person_id
-	- group_id (many groups)
-	- thema_id (many themas)
 
 - Groups
 	- id
 	- group_name
 	- group_type
 
-- Themas
+- Module
 	- id
-	- thema_name
-	- thema_description
-
-- Topics
-	- id
-	- thema_id
+	- topic
 
 - Lessons
 	- id
 	- group_id
 	- lesson_type
-	- thema_id
-	- topic_id
+	- module_id
+	- topic
 	- date
 	- start_time
 	- end_time
+	- teacher_id
 
 - Materials
 	- id
@@ -62,12 +54,39 @@ Data tables needed:
 	- titlle
 	- description
 	- lesson_id
-	- thema_id
-	- topic_id
 
 - Comments
 	- person_id
-	- 
 	- lesson_id
 	- body
 
+Development steps: 
+- setting up Django project (basically done)
+- define DB models in models.py (strarted, but not finished)
+	- add to user model the "role of user"("teacher", "student" etc)
+- create student app
+- create teacher app
+- registering created apps in settings
+
+- refactor 'Resource' model creating tables:
+	- Module
+	- Lessons
+	- Materials
+	- Comments
+
+- define relations between user-teacher-student 
+
+- create templates:
+	- teachers part
+		- lessons list
+		- lesson for teacher (with possibility to upload materials)
+		- uploading materials
+		- answering students questions
+		- looking up students list 
+		- access to student profile (+ answers made by student) + teachers notes
+	- students part (also accessible by teachers) any authorised user can see it
+		- list of lessons
+		- lesson for student
+		- student's profile (including answered questions + answers from teachers)
+
+- build logic in 'views' for above mentioned templates

@@ -1,0 +1,9 @@
+{
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    },
+    "gitlens.hovers.annotations.changes": false,
+    "gitlens.hovers.currentLine.changes": false,
+    "gitlens.advanced.externalDiffTool": "",
+    "trunk.autoInit": true
+}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ block.super }} - Home{% endblock title %}
+
+{% block content %}
+
+<h1>Welcome to Digital Class</h1>
+<p>We have {{ cnt_res }} resources</p>
+<p>We have {{ user_count }} users</p>
+<ol>
+{% for cat in res_count %}
+
+<li> {{cat.cat_id__cat}}: {{cat.count_cat}} </li>
+{% endfor %}
+</ol>
+
+{% endblock content %}
