@@ -17,6 +17,8 @@ CUSTOM_APPS = [
     'apps.user',
     'apps.resources',
     'apps.core',
+    'apps.student',
+    'apps.teacher',
 ]
 
 THIRD_PARTY_APPS = []

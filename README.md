@@ -60,13 +60,13 @@ Data tables needed:
 	- lesson_id
 	- body
 
-Development steps: 
+## Development steps:
 - setting up Django project (basically done)
-- define DB models in models.py (strarted, but not finished)
-	- add to user model the "role of user"("teacher", "student" etc)
-- create student app
-- create teacher app
-- registering created apps in settings
+- define DB models in models.py (started, but not finished)
+	- add to user model the "role of user"("teacher", "student" etc) [done but can not move the field up in admin]
+- create student app [x]
+- create teacher app [x]
+- registering created apps in settings [x]
 
 - refactor 'Resource' model creating tables:
 	- Module
