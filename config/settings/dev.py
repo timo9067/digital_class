@@ -23,3 +23,6 @@ DATABASES = {
         'PORT': env.int('DB_PORT'),
     }
 }
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = str(BASE_DIR / 'media')
