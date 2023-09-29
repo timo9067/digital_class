@@ -16,3 +16,13 @@ def user_list(request):
         context= context,
         request=request,
     )
+
+def user_profile_view(request):
+    pass
+
+def user_registration_view(request):
+    pass
+
+def user_login_view(request):
+    pass
+

@@ -17,7 +17,7 @@ CUSTOM_APPS = [
     'apps.user',
     'apps.resources',
     'apps.core',
-    'apps.student',
+    'apps.lesson',
     'apps.teacher',
 ]
 

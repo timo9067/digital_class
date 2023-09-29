@@ -82,4 +82,3 @@ class Rating(CreatedModifiedDateTimeBase):
     resources_id = models.ForeignKey(
         "resources.Resources", on_delete=models.CASCADE)
     rate = models.IntegerField(validators=[validators.check_rating_range, ])
-

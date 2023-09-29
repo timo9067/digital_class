@@ -15,3 +15,4 @@ class User(AbstractUser):
     bio = models.TextField(default='', blank=True, )
     aim = models.TextField(default='', blank=True, )
     role = models.CharField(max_length=10, choices=USER_ROLE, default=None,)
+
