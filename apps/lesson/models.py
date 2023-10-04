@@ -35,12 +35,7 @@ class Lesson(models.Model):
         super(Lesson, self).save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.module_id} - {self.topic}"
-    
-    @property
-    def topic(self):
-        return self.topic
-    
+        return f"{self.module_id} - {self.topic}"    
 
 class Video(models.Model):
     lesson_id = models.OneToOneField("Lesson", on_delete=models.CASCADE, default="", null=True)
@@ -49,8 +44,10 @@ class Video(models.Model):
     description = models.TextField(blank=True, null=True)
     file = models.FileField(upload_to='videos/')  # Specify the upload_to directory
 
-    # def __str__(self):
-    #     return self.topic
+    def __str__(self):
+        module_title = self.lesson_id.module_id.title
+        lesson_topic = self.lesson_id.topic
+        return f"{module_title} -- {lesson_topic}"
 
 # class Presentation(models.Model):
 #     topic = models.CharField(max_length=50, null=False)
