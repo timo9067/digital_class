@@ -13,6 +13,6 @@ class CustomLessonAdmin(admin.ModelAdmin):
 admin.site.register(models.Module, CustomModuleAdmin)
 admin.site.register(models.Lesson, CustomLessonAdmin)
 admin.site.register(models.Video)
-admin.site.register(models.Presentation)
+# admin.site.register(models.Presentation)
 
 
